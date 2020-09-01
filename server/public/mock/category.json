@@ -1,0 +1,255 @@
+[{
+  "value": "数码产品",
+  "label": "数码产品",
+  "children": [
+    {
+      "value": "手机",
+      "label": "手机"
+    },
+    {
+      "value": "平板",
+      "label": "平板"
+    },
+    {
+      "value": "单反相机",
+      "label": "单反相机"
+    },
+    {
+      "value": "笔记本",
+      "label": "笔记本"
+    },
+    {
+      "value": "台式机",
+      "label": "台式机"
+    },
+    {
+      "value": "手表手环",
+      "label": "手表手环"
+    },
+    {
+      "value": "充电宝",
+      "label": "充电宝"
+    },
+    {
+      "value": "耳机",
+      "label": "耳机"
+    },
+    {
+      "value": "手机配件",
+      "label": "手机配件"
+    },
+    {
+      "value": "电脑配件",
+      "label": "电脑配件"
+    },
+    {
+      "value": "路由器",
+      "label": "路由器"
+    }
+  ]
+}, {
+  "value": "衣鞋帽伞",
+  "label": "衣鞋帽伞",
+  "children": [
+    {
+      "value": "衣服",
+      "label": "衣服"
+    },
+    {
+      "value": "鞋子",
+      "label": "鞋子"
+    },
+    {
+      "value": "帽子",
+      "label": "帽子"
+    },
+    {
+      "value": "雨伞",
+      "label": "雨伞"
+    }
+  ]
+},
+{
+  "value": "书籍教材",
+  "label": "书籍教材",
+  "children": [
+    {
+      "value": "教科书",
+      "label": "教科书"
+    },
+    {
+      "value": "文学",
+      "label": "文学"
+    },
+    {
+      "value": "小说",
+      "label": "小说"
+    },
+    {
+      "value": "电子书",
+      "label": "电子书"
+    },
+    {
+      "value": "教育考试",
+      "label": "教育考试"
+    },
+    {
+      "value": "动漫",
+      "label": "动漫"
+    }
+  ]
+},
+{
+  "value": "代步工具",
+  "label": "代步工具",
+  "children": [
+    {
+      "value": "自行车",
+      "label": "自行车"
+    },
+    {
+      "value": "旱冰鞋",
+      "label": "旱冰鞋"
+    },
+    {
+      "value": "平衡车",
+      "label": "平衡车"
+    },
+    {
+      "value": "滑板",
+      "label": "滑板"
+    },
+    {
+      "value": "油车",
+      "label": "油车"
+    },
+    {
+      "value": "电动车",
+      "label": "电动车"
+    }
+  ]
+},
+{
+  "value": "体育健身",
+  "label": "体育健身",
+  "children": [
+    {
+      "value": "球类",
+      "label": "球类"
+    },
+    {
+      "value": "球拍",
+      "label": "球拍"
+    },
+    {
+      "value": "运动装备",
+      "label": "运动装备"
+    },
+    {
+      "value": "健身器材",
+      "label": "健身器材"
+    }
+  ]
+},
+{
+  "value": "小型电器",
+  "label": "小型电器",
+  "children": [
+    {
+      "value": "小风扇",
+      "label": "小风扇"
+    },
+    {
+      "value": "吹风机",
+      "label": "吹风机"
+    }
+  ]
+},
+{
+  "value": "虚拟产品",
+  "label": "虚拟产品",
+  "children": [
+    {
+      "value": "游戏周边",
+      "label": "游戏周边"
+    },
+    {
+      "value": "充值卡",
+      "label": "充值卡"
+    },
+    {
+      "value": "游戏账号",
+      "label": "游戏账号"
+    }
+  ]
+},
+{
+  "value": "手工设计",
+  "label": "手工设计",
+  "children": [
+    {
+      "value": "书法",
+      "label": "书法"
+    },
+    {
+      "value": "绘画",
+      "label": "绘画"
+    },
+    {
+      "value": "工艺品",
+      "label": "工艺品"
+    }
+  ]
+},
+{
+  "value": "乐器",
+  "label": "乐器",
+  "children": [
+    {
+      "value": "吉他",
+      "label": "吉他"
+    },
+    {
+      "value": "尤克里里",
+      "label": "尤克里里"
+    },
+    {
+      "value": "民族管弦",
+      "label": "民族管弦"
+    },
+    {
+      "value": "西洋管弦",
+      "label": "西洋管弦"
+    },
+    {
+      "value": "打击乐器",
+      "label": "打击乐器"
+    },
+    {
+      "value": "乐器配件",
+      "label": "乐器配件"
+    },
+    {
+      "value": "电脑音乐",
+      "label": "电脑音乐"
+    },
+    {
+      "value": "口琴",
+      "label": "口琴"
+    },
+    {
+      "value": "电子琴",
+      "label": "电子琴"
+    }
+  ]
+},
+{
+  "value": "其他",
+  "label": "其他",
+  "children": [
+    {
+      "value": "其他",
+      "label": "其他"
+    }
+  ]
+}]
