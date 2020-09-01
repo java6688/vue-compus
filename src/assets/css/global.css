@@ -1,0 +1,56 @@
+/* tag标签默认样式 */
+/* .ivu-tag-text{
+  font-size: 14px;
+} */
+body{
+  overflow-y: scroll;
+  background-color: #f5f7f9;
+}
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+/* 最外层骨架样式 */
+.layout{
+  border: 1px solid #d7dde4;
+  background: #f5f7f9;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.ivu-layout.ivu-layout-has-sider{
+  height: calc(100vh);
+}
+/* .ivu-layout-footer{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+} */
+/* 登录页面样式 */
+.loginPage .wrapper .ivu-tabs-content{
+  /* padding: 0 50px; */
+  padding-top: 20px;
+}
+/* 我的物品图片 */
+.ivu-avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 0;
+}
+/* 后台页码样式 */
+.pagination{
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+/* 后台操作按钮样式 */
+.ivu-table-cell{
+  padding: 0 6px;
+}
+
+/* 个人中心侧边栏样式管理 */
+.menu>a{
+  color: black;
+}

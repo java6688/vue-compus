@@ -1,32 +1,45 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view v-if="computerShow"/>
+    <h3 class="tip" v-if="phoneShow">
+      为了给您更好的体验，请使用电脑进行访问！
+    </h3>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  data() {
+    return {
+      computerShow: true,
+      phoneShow: false
+    }
+  }
+  // mounted() {
+  //   var w = document.documentElement.clientWidth
+  //   console.log(w)
+  //   if (w < 1000) {
+  //     this.computerShow = false
+  //     this.phoneShow = true
+  //   }
+  // }
 }
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style scoped>
+  .tip{
+    /* 方法一: 需要有宽度和高度再能水平垂直居中 */
+/*    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; */
+    /* 方法二: */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #1ABC9C;
+  }
 </style>
