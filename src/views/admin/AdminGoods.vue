@@ -15,9 +15,12 @@
 </template>
 
 <script>
-import Aside from '../../components/admin/Aside.vue'
-import Header from '../../components/admin/Header.vue'
-import Goods from '../../components/admin/Goods.vue'
+// import Aside from '../../components/admin/Aside.vue'
+// import Header from '../../components/admin/Header.vue'
+// import Goods from '../../components/admin/Goods.vue'
+const Aside = ()=>import('@components/admin/Aside.vue')
+const Header = ()=>import('@components/admin/Header.vue')
+const Goods = ()=>import('@components/admin/Goods.vue')
 export default {
   components: {
     Aside,

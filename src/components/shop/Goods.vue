@@ -34,7 +34,7 @@
           <template>
             <div class='cell-item' v-for='(item,index) in goodsData' :key='index' @mouseover="itemMouseover">
               <router-link :to="{path: '/detail',query: {goodsId: item._id}}" target="_blank">
-                <img v-if='item.goodsImgs.length' :src='item.goodsImgs[0]' alt="该用户没有上传图片哦!">
+                <img v-if='item.goodsImgs.length' v-lazy='item.goodsImgs[0]' alt="图片加载中...">
               </router-link>
               <div class='item-body'>
                 <router-link :to="{path: '/detail',query: {goodsId: item._id}}" target="_blank">
@@ -388,6 +388,8 @@ export default {
   }
   .tag{
     cursor: pointer;
+    margin-left: 5px;
+    margin-bottom: 5px;
   }
   // Waterfall
   .collection{

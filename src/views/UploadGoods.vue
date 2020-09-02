@@ -65,7 +65,7 @@
                 :on-progress="handleProgress"
                 multiple
                 type="drag"
-                action="http://localhost/upload"
+                action="http://liuguanghai.cn/upload"
                 style="display: inline-block;width:58px;">
                 <div style="width: 58px;height:58px;line-height: 58px;">
                     <Icon type="ios-camera" size="20"></Icon>
@@ -86,7 +86,8 @@
 </template>
 
 <script>
-import Header from '../components/header/Header.vue'
+// import Header from '../components/header/Header.vue'
+const Header = ()=>import('@components/header/Header.vue')
 export default {
   name: 'UploadGoods',
   components: {
@@ -193,15 +194,15 @@ export default {
     },
     // 图片上传成功
     handleSuccess (res, file, fileList) {
-      file.url = `http://localhost/${res.imgUrl}`
+      file.url = `http://liuguanghai.cn/${res.imgUrl}`
       file.name = file.url
       this.goodsData.goodsImgs.push(file.url)
     },
     // 上传错误
     handleFormatError (file) {
       this.$Notice.warning({
-        title: 'The file format is incorrect',
-        desc: 'File format of ' + file.name + ' is incorrect, please select jpg or png.'
+        title: '上传的图片格式错误',
+        desc: '文件 ' + file.name + ' 格式错误, 请上传 jpg 或 png 格式的文件.'
       })
     },
     // 图片上传大小限制

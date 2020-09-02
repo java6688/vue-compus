@@ -101,7 +101,6 @@ export default {
   },
   methods: {
     show (index) {
-      console.log('更多')
       this.$Modal.info({
         title: '更多信息',
         content: `QQ：${this.goodsData[index].qq}<br>微信：${this.goodsData[index].wx}<br>手机号码：${this.goodsData[index].phone}

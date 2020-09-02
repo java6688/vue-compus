@@ -1,29 +1,29 @@
 <template>
       <Menu :active-name="asideActive" theme="dark" width="auto" :class="menuitemClasses">
-          <a href="http://localhost:8080/#/admin/home">
+          <a href="/admin/home">
             <h2 class="topBar">
               校园集市
             </h2>
           </a>
-          <a href="http://localhost:8080/#/admin/user">
+          <a href="/admin/user">
             <MenuItem name="1-1">
                 <Icon type="ios-navigate"></Icon>
                 <span>用户管理</span>
             </MenuItem>
           </a>
-          <a href="http://localhost:8080/#/admin/goods">
+          <a href="/admin/goods">
             <MenuItem name="1-2">
                 <Icon type="ios-search"></Icon>
                 <span>商品管理</span>
             </MenuItem>
           </a>
-          <a href="http://localhost:8080/#/admin/check">
+          <a href="/admin/check">
             <MenuItem name="1-3">
                 <Icon type="ios-apps" />
                 <span>商品审核</span>
             </MenuItem>
           </a>
-          <a href="http://localhost:8080/#/admin/feedback">
+          <a href="/admin/feedback">
             <MenuItem name="1-4">
                 <Icon type="ios-albums" />
                 <span>反馈中心</span>

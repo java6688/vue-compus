@@ -15,9 +15,12 @@
 </template>
 
 <script>
-import Aside from '../../components/admin/Aside.vue'
-import Header from '../../components/admin/Header.vue'
-import User from '../../components/admin/User.vue'
+// import Aside from '../../components/admin/Aside.vue'
+// import Header from '../../components/admin/Header.vue'
+// import User from '../../components/admin/User.vue'
+const Aside = ()=>import('@components/admin/Aside.vue')
+const Header = ()=>import('@components/admin/Header.vue')
+const User = ()=>import('@components/admin/User.vue')
 export default {
   components: {
     Aside,

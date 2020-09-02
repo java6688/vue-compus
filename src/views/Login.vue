@@ -144,7 +144,7 @@ export default {
   height: calc(100vh);
   padding-top: 80px;
   text-align: center;
-  background-image: url('/images/bk.jpg');
+  background-image: url('https://s1.ax1x.com/2020/09/02/w9puXn.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   .wrapper{

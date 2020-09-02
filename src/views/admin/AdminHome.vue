@@ -15,8 +15,10 @@
 </template>
 
 <script>
-import Aside from '../../components/admin/Aside.vue'
-import Header from '../../components/admin/Header.vue'
+// import Aside from '../../components/admin/Aside.vue'
+// import Header from '../../components/admin/Header.vue'
+const Header = ()=>import('@components/admin/Header.vue')
+const Aside = ()=>import('@components/admin/Aside.vue')
 export default {
   components: {
     Header,

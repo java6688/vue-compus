@@ -30,6 +30,8 @@ module.exports = {
   },
   lintOnSave: false,
   // 关闭eslint语法检查 end
+  // outputDir: 'dist',
+  // assetsDir: 'static',
   // 配置指导路径别名 start
   chainWebpack: (config) => {
     config.resolve.alias
@@ -38,6 +40,9 @@ module.exports = {
       .set('@components', resolve('src/components'))
       .set('@views', resolve('src/views'))
     // 这里只写了两个，你可以自己再加，按这种格式.set('', resolve(''))
+    // config
+    //   .plugin('webpack-bundle-analyzer')
+    //   .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
   },
   // 配置指导路径别名 end
 }
