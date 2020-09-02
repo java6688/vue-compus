@@ -1,71 +1,98 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Shop from '../views/Shop.vue'
-import UploadGoods from '../views/UploadGoods.vue'
-import Detail from '../views/Detail.vue'
-import User from '../views/user/User.vue'
-import Login from '../views/Login.vue'
-import AdminLogin from '../views/admin/AdminLogin.vue'
-import AdminHome from '../views/admin/AdminHome.vue'
-import AdminUser from '../views/admin/AdminUser.vue'
-import AdminGoods from '../views/admin/AdminGoods.vue'
-import AdminCheck from '../views/admin/AdminCheck.vue'
-import AdminFeedback from '../views/admin/AdminFeedback.vue'
-import GoodsEdit from '../views/GoodsEdit.vue'
-import News from '../views/News.vue'
-import UserGoods from '../views/user/UserGoods.vue'
-import UserCollections from '../views/user/UserCollections.vue'
-import UserNews from '../views/user/UserNews.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   // { path: '/', redirect: '/home' },
-  { path: '/', component: Home },
-  { path: '/shop', component: Shop },
-  { path: '/upload_goods', component: UploadGoods },
-  { path: '/detail', component: Detail },
+  {
+    path: '/',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "home" */ '@views/Home.vue')
+  },
+  {
+    path: '/shop',
+    name: 'Shop',
+    component: () => import(/* webpackChunkName: "shop" */ '@views/Shop.vue')
+  },
+  {
+    path: '/upload_goods',
+    name: 'UploadGoods',
+    component: () => import(/* webpackChunkName: "upload_goods" */ '@views/UploadGoods.vue')
+  },
+  {
+    path: '/news',
+    name: 'News',
+    component: () => import(/* webpackChunkName: "news" */ '@views/News.vue')
+  },
   {
     path: '/user',
-    component: User
+    name: 'User',
+    component: () => import(/* webpackChunkName: "user" */ '@views/user/User.vue')
   },
   {
     path: '/mygoods',
-    component: UserGoods
+    name: 'UserGoods',
+    component: () => import(/* webpackChunkName: "user" */ '@views/user/UserGoods.vue')
   },
-  { path: '/goods_edit', component: GoodsEdit },
-  { path: '/mycollections', component: UserCollections },
-  { path: '/mynews', component: UserNews },
-  { path: '/login', component: Login },
-  { path: '/news', component: News },
+  {
+    path: '/goods_edit',
+    name: 'GoodsEdit',
+    component: () => import(/* webpackChunkName: "user" */ '@views/GoodsEdit.vue')
+  },
+  {
+    path: '/mycollections',
+    name: 'UserCollections',
+    component: () => import(/* webpackChunkName: "user" */ '@views/user/UserCollections.vue')
+  },
+  {
+    path: '/mynews',
+    name: 'UserNews',
+    component: () => import(/* webpackChunkName: "user" */ '@views/user/UserNews.vue')
+  },
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: () => import(/* webpackChunkName: "detail" */ '@views/Detail.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "login" */ '@views/Login.vue')
+  },
   {
     path: '/admin/login',
-    component: AdminLogin
+    name: 'AdminLogin',
+    component: () => import(/* webpackChunkName: "admin_login" */ '@views/admin/AdminLogin.vue')
   },
   {
     path: '/admin/home',
-    component: AdminHome,
+    name: 'AdminHome',
+    component: () => import(/* webpackChunkName: "admin_home" */ '@views/admin/AdminHome.vue'),
     meta: { requireAuth: true }
   },
   {
     path: '/admin/user',
-    component: AdminUser,
+    name: 'AdminUser',
+    component: () => import(/* webpackChunkName: "admin_user" */ '@views/admin/AdminUser.vue'),
     meta: { requireAuth: true }
   },
   {
     path: '/admin/goods',
-    component: AdminGoods,
+    name: 'AdminGoods',
+    component: () => import(/* webpackChunkName: "admin_goods" */ '@views/admin/AdminGoods.vue'),
     meta: { requireAuth: true }
   },
   {
     path: '/admin/check',
-    component: AdminCheck,
+    name: 'AdminCheck',
+    component: () => import(/* webpackChunkName: "admin_check" */ '@views/admin/AdminCheck.vue'),
     meta: { requireAuth: true }
   },
   {
     path: '/admin/feedback',
-    component: AdminFeedback,
+    name: 'AdminFeedback',
+    component: () => import(/* webpackChunkName: "admin_feedback" */ '@views/admin/AdminFeedback.vue'),
     meta: { requireAuth: true }
   }
   // ,
@@ -75,11 +102,12 @@ const routes = [
   //   // route level code-splitting
   //   // this generates a separate chunk (about.[hash].js) for this route
   //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  //   component: () => import(/* webpackChunkName: "about" */ '@views/About.vue')
   // }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

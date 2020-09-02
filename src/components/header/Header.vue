@@ -21,27 +21,27 @@
         <!-- <router-link to="/#/shop">
           <MenuItem name="2">集市</MenuItem>
         </router-link> -->
-        <a href="/#/shop">
+        <a href="/shop">
           <MenuItem name="2">集市</MenuItem>
         </a>
-        <a href="/#/upload_goods">
+        <a href="/upload_goods">
           <MenuItem name="3">发布</MenuItem>
         </a>
-        <a href="/#/news">
+        <a href="/news">
           <MenuItem name="4">校园动态</MenuItem>
         </a>
-        <a href="/#/user">
+        <a href="/user">
           <MenuItem name="5">个人中心</MenuItem>
         </a>
         <div class="demo-avatar">
             <!-- <Avatar icon="ios-person" /> -->
-            <a href="http://localhost:8080/#/user">
+            <a href="/user">
               <img :src="avatarUrl ? avatarUrl : defaultAvatar" class="avatar">
             </a>
             <!-- <img :src="avatarUrl" alt=""> -->
             <!-- <a href="/#/login" class="login">{{username ? username : '登录'}}</a> -->
             <Dropdown style="margin-left: 20px">
-                <a :href="username ? 'javascript:;' : '/#/login'">
+                <a :href="username ? 'javascript:;' : '/login'">
                     {{username ? username : '登录'}}
                     <Icon type="ios-arrow-down" v-show="username"></Icon>
                 </a>
