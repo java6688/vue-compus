@@ -69,8 +69,6 @@
 <script>
 const Header = ()=>import('@components/header/Header.vue')
 const Footer = ()=>import('@components/Footer.vue')
-// import Header from '@components/header/Header.vue'
-// import Footer from '@components/Footer.vue'
 export default {
   name: 'Detail',
   components: {

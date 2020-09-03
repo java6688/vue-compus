@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import wangEditor from 'wangeditor'
 export default{
   data() {
     return {
@@ -17,9 +18,9 @@ export default{
   },
   methods: {
     initEditor() {
-      var E = window.wangEditor
+      console.log(wangEditor)
       var editorBox = document.getElementById('editor')
-      var editor = new E(editorBox)
+      var editor = new wangEditor(editorBox)
       var vm = this
       editor.customConfig.onchange = function (html) {
         // html 即变化之后的内容

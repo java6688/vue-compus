@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import Header from '../../components/header/Header.vue'
-import Footer from '../../components/Footer.vue'
-import MyGoods from '../../components/user/MyGoods.vue'
+const Header = ()=>import('@components/header/Header.vue')
+const Footer = ()=>import('@components/Footer.vue')
+const MyGoods = ()=>import('@components/user/MyGoods.vue')
 export default {
   name: 'User',
   components: {

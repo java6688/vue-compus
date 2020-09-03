@@ -62,7 +62,7 @@ router.afterEach(route => {
 })
 
 // 配置请求根路径
-axios.defaults.baseURL = 'http://liuguanghai.cn/'
+axios.defaults.baseURL = 'http://liuguanghai.cn:3001/'
 // 在 request 拦截器中展示进度条 NProgress.start()
 axios.interceptors.request.use(config => {
   NProgress.start()

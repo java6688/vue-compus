@@ -78,12 +78,8 @@
 </template>
 
 <script>
-// import Header from '../components/header/Header.vue'
 export default {
   name: 'UploadGoods',
-  components: {
-    // Header
-  },
   data () {
     return {
       // 控制导航栏激活状态

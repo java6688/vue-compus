@@ -73,9 +73,6 @@
 const Header = ()=>import('@components/header/Header.vue')
 const Footer = ()=>import('@components/Footer.vue')
 const WangEditor = ()=>import('@components/news/wangEditor-3.1.1/WangEditor.vue')
-// import Header from '@components/header/Header.vue'
-// import Footer from '@components/Footer.vue'
-// import WangEditor from '@components/news/wangEditor-3.1.1/WangEditor.vue'
 export default {
   name: 'Home',
   components: {

@@ -3,11 +3,11 @@
     :active-name="show"
     style="height: 63px;"
    >
-    <a href="/">
+    <router-link to="/">
       <div class="layout-logo">
         <img style="display: inline-block;width: 100%;height: 100%;" src="/logo.png" alt="校园集市">
       </div>
-    </a>
+    </router-link>
     <Input v-if="currentUrl !== '/'" class="search" search placeholder="请输入需要搜索的内容"
       v-model="keyword"
       :autofocus="true"
@@ -15,36 +15,35 @@
       style="width: 200px;"
     />
     <div class="layout-nav">
-        <a href="/">
+        <router-link to="/">
           <MenuItem name="1">首页</MenuItem>
-        </a>
+        </router-link>
         <!-- <router-link to="/#/shop">
           <MenuItem name="2">集市</MenuItem>
         </router-link> -->
-        <a href="/shop">
+        <router-link to="/shop">
           <MenuItem name="2">集市</MenuItem>
-        </a>
-        <a href="/upload_goods">
+        </router-link>
+        <router-link to="/upload_goods">
           <MenuItem name="3">发布</MenuItem>
-        </a>
-        <a href="/news">
+        </router-link>
+        <router-link to="/news">
           <MenuItem name="4">校园动态</MenuItem>
-        </a>
-        <a href="/user">
+        </router-link>
+        <router-link to="/user">
           <MenuItem name="5">个人中心</MenuItem>
-        </a>
+        </router-link>
         <div class="demo-avatar">
             <!-- <Avatar icon="ios-person" /> -->
-            <a href="/user">
+            <router-link to="/user">
               <img :src="avatarUrl ? avatarUrl : defaultAvatar" class="avatar">
-            </a>
+            </router-link>
             <!-- <img :src="avatarUrl" alt=""> -->
-            <!-- <a href="/#/login" class="login">{{username ? username : '登录'}}</a> -->
             <Dropdown style="margin-left: 20px">
-                <a :href="username ? 'javascript:;' : '/login'">
+                <router-link :to="username ? 'javascript:;' : '/login'">
                     {{username ? username : '登录'}}
                     <Icon type="ios-arrow-down" v-show="username"></Icon>
-                </a>
+                </router-link>
                 <DropdownMenu slot="list" v-show="username">
                     <DropdownItem>
                         <router-link to="/user">

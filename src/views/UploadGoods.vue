@@ -65,7 +65,7 @@
                 :on-progress="handleProgress"
                 multiple
                 type="drag"
-                action="http://liuguanghai.cn/upload"
+                action="http://liuguanghai.cn:3001/upload"
                 style="display: inline-block;width:58px;">
                 <div style="width: 58px;height:58px;line-height: 58px;">
                     <Icon type="ios-camera" size="20"></Icon>
@@ -86,7 +86,6 @@
 </template>
 
 <script>
-// import Header from '../components/header/Header.vue'
 const Header = ()=>import('@components/header/Header.vue')
 export default {
   name: 'UploadGoods',
@@ -194,7 +193,7 @@ export default {
     },
     // 图片上传成功
     handleSuccess (res, file, fileList) {
-      file.url = `http://liuguanghai.cn/${res.imgUrl}`
+      file.url = `http://liuguanghai.cn:3001/${res.imgUrl}`
       file.name = file.url
       this.goodsData.goodsImgs.push(file.url)
     },

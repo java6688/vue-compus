@@ -47,9 +47,9 @@
 </template>
 
 <script>
-import Header from '../../components/header/Header.vue'
-import Footer from '../../components/Footer.vue'
-import UserInfo from '../../components/user/UserInfo.vue'
+const Header = ()=>import('@components/header/Header.vue')
+const Footer = ()=>import('@components/Footer.vue')
+const UserInfo = ()=>import('@components/user/UserInfo.vue')
 export default {
   name: 'User',
   components: {

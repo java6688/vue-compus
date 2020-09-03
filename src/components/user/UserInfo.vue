@@ -2,7 +2,7 @@
   <div class="userinfo">
     <div class="avatarWrap">
       <Upload
-        action="http://liuguanghai.cn/upload"
+        action="http://liuguanghai.cn:3001:3001/upload"
         v-model="userInfo.avatarUrl"
         ref="upload"
         :show-upload-list="false"
@@ -102,8 +102,8 @@ export default {
     // 上传头像
     // 图片上传成功
     async handleSuccess (res, file, fileList) {
-      this.avatarUrl = `http://liuguanghai.cn/${res.imgUrl}`
-      this.userInfo.avatarUrl = `http://liuguanghai.cn/${res.imgUrl}`
+      this.avatarUrl = `http://liuguanghai.cn:3001:3001/${res.imgUrl}`
+      this.userInfo.avatarUrl = `http://liuguanghai.cn:3001/${res.imgUrl}`
       const avatarRes = await this.$http.post('/uploadAvatar', {
         username: localStorage.getItem('username'),
         avatarUrl: this.avatarUrl
@@ -169,7 +169,7 @@ export default {
       font-size: 60px;
       cursor: pointer;
       // background-color: #1ABC9C;
-      // background-image: url(http://liuguanghai.cn/upload/2020-07-28/upload-1595944747844.jpg);
+      // background-image: url(http://liuguanghai.cn:3001/upload/2020-07-28/upload-1595944747844.jpg);
       // background-size: cover;
       // background-repeat: no-repeat;
     }

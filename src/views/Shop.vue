@@ -23,9 +23,6 @@
 const Header = ()=>import('@components/header/Header.vue')
 const Footer = ()=>import('@components/Footer.vue')
 const Goods = ()=>import('@components/shop/Goods.vue')
-// import Header from '@components/header/Header.vue'
-// import Footer from '@components/Footer.vue'
-// import Goods from '@components/shop/Goods.vue'
 export default {
   name: 'Shop',
   components: {
