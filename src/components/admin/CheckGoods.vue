@@ -129,7 +129,9 @@ export default {
         <img style="width:100px;height:100px;" src="${this.goodsData[index].goodsImgs[1]}" />
         <img style="width:100px;height:100px;" src="${this.goodsData[index].goodsImgs[2]}" />
         <img style="width:100px;height:100px;" src="${this.goodsData[index].goodsImgs[3]}" />
-        <img style="width:100px;height:100px;"  src="${this.goodsData[index].goodsImgs[4]}" />`
+        <img style="width:100px;height:100px;"  src="${this.goodsData[index].goodsImgs[4]}" />
+        <br><div>详细信息:</div>
+        <div v-html=${this.goodsData[index].goodsInfo}</div>`
       })
     },
     // 审核通过
