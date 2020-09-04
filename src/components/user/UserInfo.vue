@@ -2,7 +2,7 @@
   <div class="userinfo">
     <div class="avatarWrap">
       <Upload
-        action="http://liuguanghai.cn:3001:3001/upload"
+        action="http://liuguanghai.cn:3001/upload"
         v-model="userInfo.avatarUrl"
         ref="upload"
         :show-upload-list="false"
@@ -12,7 +12,7 @@
         :on-format-error="handleFormatError"
         :on-exceeded-size="handleMaxSize"
       >
-        <img :src="avatarUrl?avatarUrl:defaultAvatar" alt="" class="avatar">
+        <img :src="avatarUrl?avatarUrl:defaultAvatar" alt="点击上传头像" class="avatar">
         <!-- <Avatar class="avatar" style="background-color: #87d068" /> -->
       </Upload>
     </div>
@@ -95,14 +95,13 @@ export default {
           username: this.userInfo.username
         }
       })
-      console.log(res)
       this.userInfo = res.data
       this.avatarUrl = res.data.avatarUrl
     },
     // 上传头像
     // 图片上传成功
     async handleSuccess (res, file, fileList) {
-      this.avatarUrl = `http://liuguanghai.cn:3001:3001/${res.imgUrl}`
+      this.avatarUrl = `http://liuguanghai.cn:3001/${res.imgUrl}`
       this.userInfo.avatarUrl = `http://liuguanghai.cn:3001/${res.imgUrl}`
       const avatarRes = await this.$http.post('/uploadAvatar', {
         username: localStorage.getItem('username'),
@@ -139,6 +138,9 @@ export default {
       const res = await this.$http.post('/user', this.userInfo)
       if (res.status === 200) {
         this.$Message.success(res.data.msg)
+        // 换好头像更新本地历史记录
+        localStorage.setItem('nickname', this.userInfo.nickname)
+        // this.$emit('updateNickname', this.userInfo.nickname)
       } else {
         this.$Message.error(res.data.msg)
       }
@@ -165,13 +167,9 @@ export default {
       display: inline-block;
       width: 70px;
       height: 70px;
+      border: 2px solid skyblue;
       border-radius: 50%;
-      font-size: 60px;
       cursor: pointer;
-      // background-color: #1ABC9C;
-      // background-image: url(http://liuguanghai.cn:3001/upload/2020-07-28/upload-1595944747844.jpg);
-      // background-size: cover;
-      // background-repeat: no-repeat;
     }
   }
   .formBtn{

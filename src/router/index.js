@@ -107,6 +107,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  // 去除地址栏#，但有个坑（需要合理配置服务器，不然找不到路由）
   mode: 'history',
   routes
 })

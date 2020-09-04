@@ -2,17 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueRouter from 'vue-router'
-import { Header, Table, LoadingBar, Layout, Content, Footer, Message, Spin, Notice, Tabs, TabPane, Sider, ListItemMeta, List, ListItem, Radio, RadioGroup, Form, FormItem, Select, Option, Cascader, Upload, Modal, Progress, Button, BackTop, Input, Menu, MenuItem, Dropdown, DropdownMenu, DropdownItem, Icon, Tag, Card, Breadcrumb, BreadcrumbItem, Page } from 'view-design'
-import 'view-design/dist/styles/iview.css'
+import { Table, LoadingBar, Layout, Header, Content, Footer, Message, Spin, Notice, Tabs, TabPane, Sider, ListItemMeta, List, ListItem, Radio, RadioGroup, Form, FormItem, Select, Option, Cascader, Upload, Modal, Progress, Button, BackTop, Input, Menu, MenuItem, Dropdown, DropdownMenu, DropdownItem, Icon, Tag, Card, Breadcrumb, BreadcrumbItem, Page } from 'view-design'
+// import 'view-design/dist/styles/iview.css'
 import waterfall from 'vue-waterfall2'
 import './assets/css/global.css'
 import axios from 'axios'
 import NProgress from 'nprogress'
-import './assets/iconfont/iconfont.css'
 import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueLazyload)
 Vue.use(VueRouter)
+Vue.use(waterfall)
 // 后台和前台不同的组件start
 Vue.component('Header', Header)
 Vue.component('Table', Table)
@@ -50,8 +50,6 @@ Vue.component('Content', Content)
 Vue.component('Footer', Footer)
 Vue.component('Page', Page)
 Vue.component('BackTop', BackTop)
-Vue.use(waterfall)
-
 // 加载进度条
 router.beforeEach((to, from, next) => {
   LoadingBar.start()

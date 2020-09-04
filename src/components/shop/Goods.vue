@@ -13,15 +13,15 @@
         </div>
       </div>
       <div class="rank">
-        <a @click.prevent="switchSort" class="default active">
+        <a @click.prevent="switchSort($event)" class="default active">
           时间排序
           <span class="iconfont icon-paixu-xia" style="font-size: 12px;color: grey;"></span>
         </a>
         <!-- <a href="javascript:;" class="clicks">
           浏览量
           <span class="iconfont icon-paixu-xia" style="font-size: 12px;color: grey;"></span>
-         </a>
-        <a href="javascript:;" class="price">
+         </a> -->
+        <!-- <a @click.prevent="priceSort($event)" class="price">
           价格
           <span class="iconfont icon-paixu-xia" style="font-size: 12px;color: grey;"></span>
         </a> -->
@@ -58,8 +58,8 @@
                     <!-- <span class="fr like-total">{{item.views}}</span> -->
                   </div>
                   <div class="clearfix">
-                    <span class="price fl">￥150</span>
-                    <span class="location fr">桂林理工大学</span>
+                    <span class="price fl">￥{{item.price}}</span>
+                    <span class="location fr">{{item.location}}</span>
                   </div>
                   <div class="clearfix">
                     <span class="collection fr iconfont icon-shoucang"
@@ -121,7 +121,9 @@ export default {
       // 总的数据条数
       total: 10,
       // 保存我的收藏数据
-      collections: []
+      collections: [],
+      // 保存所有请求数据
+      allGoodsData: []
     }
   },
   methods: {
@@ -149,27 +151,57 @@ export default {
       })
       this.goodsData = res.data.records
       this.total = res.data.total
-      console.log(res)
       // 搜索完清空关键词
       // this.queryInfo.keyword = ''
     },
-    // 排序高低切换
-    switchSort() {
-      var iconfont = document.getElementsByClassName('iconfont')[0]
-      if (iconfont.classList[1] === 'icon-paixu-shang') {
-        iconfont.classList.remove('icon-paixu-shang')
-        iconfont.classList.add('icon-paixu-xia')
+    // 排序高低切换(时间排序)
+    switchSort(event) {
+      console.log(event.target.children)
+      console.log(event.target.children[0])
+      if (event.target.children[0].className.indexOf('icon-paixu-shang') !== -1) {
+        event.target.children[0].classList.remove('icon-paixu-shang')
+        event.target.children[0].classList.add('icon-paixu-xia')
         this.queryInfo.rank = -1
         this.getData()
-        console.log(this.queryInfo.rankSort)
       } else {
-        iconfont.classList.remove('icon-paixu-xia')
-        iconfont.classList.add('icon-paixu-shang')
+        event.target.children[0].classList.remove('icon-paixu-xia')
+        event.target.children[0].classList.add('icon-paixu-shang')
         this.queryInfo.rank = 1
         this.getData()
-        console.log(this.queryInfo.rankSort)
       }
+      // var iconfont = document.getElementsByClassName('iconfont')[0]
+      // if (iconfont.classList[1] === 'icon-paixu-shang') {
+      //   iconfont.classList.remove('icon-paixu-shang')
+      //   iconfont.classList.add('icon-paixu-xia')
+      //   this.queryInfo.rank = -1
+      //   this.getData()
+      //   console.log(this.queryInfo.rankSort)
+      // } else {
+      //   iconfont.classList.remove('icon-paixu-xia')
+      //   iconfont.classList.add('icon-paixu-shang')
+      //   this.queryInfo.rank = 1
+      //   this.getData()
+      //   console.log(this.queryInfo.rankSort)
+      // }
     },
+    // async priceSort(event) {
+    //   if (!this.allGoodsData[0]) {
+    //     const res = await this.$http.get('/priceSort')
+    //     this.allGoodsData = res.data
+    //   }
+    //   if (event.target.children[0].className.indexOf('icon-paixu-shang') !== -1) {
+    //     console.log('aa')
+    //     this.goodsData = this.goodsData.reverse()
+    //     event.target.children[0].classList.remove('icon-paixu-shang')
+    //     event.target.children[0].classList.add('icon-paixu-xia')
+    //   } else {
+    //     console.log('bb')
+    //     console.log(this.allGoodsData)
+    //     this.goodsData = this.allGoodsData.sort(this.compare('price'))
+    //     event.target.children[0].classList.remove('icon-paixu-xia')
+    //     event.target.children[0].classList.add('icon-paixu-shang')
+    //   }
+    // },
     // 切换active类的方法
     switchActive() {
       var rankBtns = document.querySelectorAll('.rank a')
@@ -288,6 +320,14 @@ export default {
             items[i].classList.add('icon-icon3')
           }
         }
+      }
+    },
+    // 按价格排序方法
+    compare(price){
+      return function(a,b){
+        var value1 = a[price];
+        var value2 = b[price];
+        return value1 - value2;
       }
     },
     // 移动端方法
@@ -492,7 +532,7 @@ export default {
             height: 44px;
             border-radius: 50%;
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: 100% 100%;
           }
           .name {
             max-width: 150px;

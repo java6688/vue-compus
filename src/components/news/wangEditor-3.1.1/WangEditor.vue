@@ -18,7 +18,6 @@ export default{
   },
   methods: {
     initEditor() {
-      console.log(wangEditor)
       var editorBox = document.getElementById('editor')
       var editor = new wangEditor(editorBox)
       var vm = this

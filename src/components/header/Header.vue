@@ -30,9 +30,9 @@
         <router-link to="/news">
           <MenuItem name="4">校园动态</MenuItem>
         </router-link>
-        <router-link to="/user">
+<!--        <router-link to="/user">
           <MenuItem name="5">个人中心</MenuItem>
-        </router-link>
+        </router-link> -->
         <div class="demo-avatar">
             <!-- <Avatar icon="ios-person" /> -->
             <router-link to="/user">
@@ -40,8 +40,8 @@
             </router-link>
             <!-- <img :src="avatarUrl" alt=""> -->
             <Dropdown style="margin-left: 20px">
-                <router-link :to="username ? 'javascript:;' : '/login'">
-                    {{username ? username : '登录'}}
+                <router-link :to="username ? '' : '/login'">
+                    {{nickname || username ? nickname || username : '登录'}}
                     <Icon type="ios-arrow-down" v-show="username"></Icon>
                 </router-link>
                 <DropdownMenu slot="list" v-show="username">
@@ -73,6 +73,7 @@ export default {
       // 导航栏激活控件
       activeName: '2',
       username: '',
+      nickname: '',
       avatarUrl: '',
       defaultAvatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596303462534&di=77780457c88d6f77e8d2431c0b3ed309&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F01%2F56%2F69%2F575747cfd0cfe1a.jpg'
     }
@@ -80,10 +81,12 @@ export default {
   methods: {
     getLoginUser() {
       this.username = localStorage.getItem('username')
+      this.nickname = localStorage.getItem('nickname')
       this.avatarUrl = localStorage.getItem('avatarUrl')
     },
     clearLocalStorage() {
       localStorage.removeItem('username')
+      localStorage.removeItem('nickname')
       localStorage.removeItem('userId')
       localStorage.removeItem('avatarUrl')
       this.username = ''
@@ -116,11 +119,9 @@ export default {
 <style lang="less" scoped>
   .search{
     position: absolute;
-    // border: 2px solid darkcyan;
     top: 50%;
     transform: translateY(-50%);
     border-radius: 5px;
-    margin-left: 10px;
   }
   .avatar{
     width: 30px;
@@ -144,7 +145,9 @@ export default {
     // left: 20px;
   }
   .layout-nav{
-    width: 500px;
+    float: right;
+    display: inline-block;
+    // width: 500px;
     margin: 0 auto;
     margin-right: 50px;
   }
@@ -155,6 +158,7 @@ export default {
   }
   .demo-avatar{
     display: inline-block;
+    margin-left: 10px;
     float: right;
   }
   .layout{

@@ -90,6 +90,10 @@ export default {
             this.$Message.success('登录成功')
             localStorage.setItem('username', res.data.username)
             localStorage.setItem('userId', res.data.id)
+            console.log(res.data)
+            if (res.data.nickname) {
+              localStorage.setItem('nickname', res.data.nickname)
+            }
             if (res.data.avatarUrl) {
               console.log(res.data.avatarUrl)
               localStorage.setItem('avatarUrl', res.data.avatarUrl)

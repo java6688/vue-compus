@@ -63,13 +63,13 @@ export default {
       activeName: '5',
       // 个人中心侧边栏激活控件
       asideName: '1-1',
-      avatarUrl: ''
+      avatarUrl: '',
+      editNickname: ''
     }
   },
   methods: {
     updateAvatar(data) {
       this.avatarUrl = data
-      console.log(data)
     }
   },
   mounted() {

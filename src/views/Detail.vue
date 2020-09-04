@@ -47,6 +47,9 @@
           <p class="item qq">
             <span class="iconfont icon-QQ"></span>
             QQ：{{goodsData.qq}}
+            <a href="'http://wpa.qq.com/msgrd?v=3&uin='+ goodsData.qq + '&site=qq&menu=yes'" target="_blank">
+              点击咨询QQ在线客服
+            </a>
           </p>
           <p class="item wx">
             <span class="iconfont icon-weixin"></span>
@@ -263,7 +266,7 @@ export default {
         height: 40px;
         border-radius: 50%;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 100% 100%;
       }
       .name {
         max-width: 150px;
