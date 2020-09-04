@@ -27,12 +27,19 @@ export default{
         // console.log(html)
       }
       editor.create()
-      // console.log(editor.txt.html())
+      // var btn = document.getElementsByClassName('btn')[0]
+      // btn.onclick = () => {
+      //   // 清空内容。
+      //   // 不能传入空字符串，而必须传入如下参数
+      //   editor.txt.html('<p><br></p>');
+      // }
     },
     async handleEditor() {
       const res = await this.$http.post('/publishNews', this.newsData)
       if (res.status === 200) {
         this.$Message.success('发布成功！')
+        // 提交成功清空编辑器文本
+        editor.txt.html('<p><br></p>');
         this.$emit('newsInfo', this.newsData)
       } else {
         this.$Message.error('发布失败！请查看是否已经登录！')

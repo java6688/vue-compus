@@ -75,9 +75,12 @@
                 <img :src="imgName" v-if="visible" style="width: 100%">
             </Modal>
           </FormItem>
+          <FormItem label="详细信息">
+              <div id="editor"></div>
+          </FormItem>
           <FormItem>
-              <Button type="primary" @click="handleSubmit('goodsData')">提交</Button>
-              <Button @click="handleReset('goodsData')" style="margin-left: 8px">重置</Button>
+              <Button class="submit" type="primary" @click="handleSubmit('goodsData')">提交</Button>
+              <Button class="reset" @click="handleReset('goodsData')" style="margin-left: 8px">重置</Button>
           </FormItem>
         </Form>
       </Card>
@@ -87,6 +90,7 @@
 
 <script>
 const Header = ()=>import('@components/header/Header.vue')
+import wangEditor from 'wangeditor'
 export default {
   name: 'UploadGoods',
   components: {
@@ -110,7 +114,9 @@ export default {
         // 保存所有联系方式
         phone: '',
         qq: '',
-        wx: ''
+        wx: '',
+        // 商品详细信息
+        goodsInfo: ''
       },
       ruleValidate: {
         title: [
@@ -150,6 +156,16 @@ export default {
     }
   },
   methods: {
+    initEditor() {
+      var editorBox = document.getElementById('editor')
+      var editor = new wangEditor(editorBox)
+      var vm = this
+      editor.customConfig.onchange = function (html) {
+        // html 即变化之后的内容
+        vm.goodsData.goodsInfo = html
+      }
+      editor.create()
+    },
     // 提交商品信息
     handleSubmit (name) {
       // console.log(this.goodsData.seller)
@@ -243,6 +259,7 @@ export default {
       this.$Message.warning('请先登录再发布商品！')
       this.$router.push('/login')
     }
+    this.initEditor()
   }
 }
 </script>

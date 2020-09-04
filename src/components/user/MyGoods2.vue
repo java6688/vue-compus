@@ -12,11 +12,6 @@
               <li>
                   <Button type="warning" size="small" v-if="item.check === 0">待审核</Button>
               </li>
-              <li>
-                <router-link :to="'detail/'+item._id" target="_blank">
-                  <Button size="small">查看</Button>
-                </router-link>
-              </li>
                 <li>
                   <router-link :to="{path:'/goods_edit', query:item}" target="_blank">
                     <Button type="primary" size="small" @click="goodsEdit">编辑</Button>
@@ -37,6 +32,8 @@
 export default {
   data() {
     return {
+      // 个人中心侧边栏激活控件
+      asideName: '1-2',
       myGoods: []
     }
   },

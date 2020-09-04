@@ -33,43 +33,42 @@
         >
           <template>
             <div class='cell-item' v-for='(item,index) in goodsData' :key='index' @mouseover="itemMouseover">
-              <router-link :to="{path: '/detail',query: {goodsId: item._id}}" target="_blank">
+              <router-link class="goodsCon" :to="'/detail/' + item._id" target="_blank">
                 <img v-if='item.goodsImgs.length' v-lazy='item.goodsImgs[0]' alt="图片加载中...">
-              </router-link>
-              <div class='item-body'>
-                <router-link :to="{path: '/detail',query: {goodsId: item._id}}" target="_blank">
+                <div class='item-body'>
                   <div class='item-desc' v-html="item.title"></div>
-                </router-link>
-                <div class='item-footer'>
-                  <div
-                    v-if='item.seller.avatarUrl'
-                    class='avatar'
-                    :style='{backgroundImage : `url(${item.seller.avatarUrl})`}'
-                  ></div>
-                  <div class='name'>{{item.seller.username}}</div>
-                  <!-- <div class='like' :class="item.liked?'active':''">
-                    <i></i>
-                    <div class='like-total'>{{item.like}}</div>
-                  </div> -->
+                  <div class='item-footer'>
+                    <div
+                      v-if='item.seller.avatarUrl'
+                      class='avatar'
+                      :style='{backgroundImage : `url(${item.seller.avatarUrl})`}'
+                    ></div>
+                    <div class='name'>{{item.seller.username}}</div>
+                    <!-- <div class='like' :class="item.liked?'active':''">
+                      <i></i>
+                      <div class='like-total'>{{item.like}}</div>
+                    </div> -->
+                  </div>
+                  <div class="info">
+                    <div class="clearfix">
+                      <span class="fl">发布于：{{item.uploadTime.split(' ')[0]}}</span>
+                      <!-- <span class="fr like-total">{{item.views}}</span> -->
+                    </div>
+                    <div class="clearfix">
+                      <span class="price fl">￥{{item.price}}</span>
+                      <span class="location fr">{{item.location}}</span>
+                    </div>
+                  </div>
+                  
                 </div>
-                <div class="info">
-                  <div class="clearfix">
-                    <span class="fl">发布于：{{item.uploadTime.split(' ')[0]}}</span>
-                    <!-- <span class="fr like-total">{{item.views}}</span> -->
-                  </div>
-                  <div class="clearfix">
-                    <span class="price fl">￥{{item.price}}</span>
-                    <span class="location fr">{{item.location}}</span>
-                  </div>
-                  <div class="clearfix">
-                    <span class="collection fr iconfont icon-shoucang"
-                     @click="switchIcon(item._id, $event)" title="收藏"
-                     :data-id="item._id"
-                    >
-                    </span>
-                    <!-- <span class="collection fr iconfont icon-icon3" @click="switchIcon"></span> -->
-                  </div>
-                </div>
+              </router-link>
+              <div class="clearfix">
+                <span class="collection fr iconfont icon-shoucang"
+                 @click="switchIcon(item._id, $event)" title="收藏"
+                 :data-id="item._id"
+                >
+                </span>
+                <!-- <span class="collection fr iconfont icon-icon3" @click="switchIcon"></span> -->
               </div>
             </div>
           </template>
@@ -391,6 +390,15 @@ export default {
     content: '';
     clear: both;
   }
+  .fl{
+    float: left;
+  }
+  .fr{
+    float: right;
+  }
+  .goodsCon{
+    color: gray;
+  }
   // 分页样式
   .pagination{
     display: flex;
@@ -433,8 +441,10 @@ export default {
   }
   // Waterfall
   .collection{
-      cursor: pointer;
-    }
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
   .clearfix:after{
     display: block;
     content: '';
@@ -445,12 +455,6 @@ export default {
   }
   .info{
     margin-top: 10px;
-  }
-  .info .fl{
-    float: left;
-  }
-  .info .fr{
-    float: right;
   }
   .info .price{
     color: red;

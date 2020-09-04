@@ -26,6 +26,10 @@
             :style='{backgroundImage : `url(${goodsData.seller.avatarUrl})`}'
           ></div>
           <div class='name' v-if="goodsData.seller">{{goodsData.seller.username}}</div>
+          <a v-if="goodsData.qq" class="service" href="'http://wpa.qq.com/msgrd?v=3&uin='+ goodsData.qq + '&site=qq&menu=yes'" target="_blank">
+            QQ在线客服
+            <span class="iconfont icon-kefu"></span>
+          </a>
         </div>
         <h2 class="title">{{goodsData.title}}</h2>
         <div class="item dec">
@@ -44,14 +48,11 @@
           发布时间：{{goodsData.uploadTime}}
         </p>
         <div class="contact" v-if="contactShow">
-          <p class="item qq">
+          <p v-if="goodsData.qq" class="item qq">
             <span class="iconfont icon-QQ"></span>
             QQ：{{goodsData.qq}}
-            <a href="'http://wpa.qq.com/msgrd?v=3&uin='+ goodsData.qq + '&site=qq&menu=yes'" target="_blank">
-              点击咨询QQ在线客服
-            </a>
           </p>
-          <p class="item wx">
+          <p v-if="goodsData.wx" class="item wx">
             <span class="iconfont icon-weixin"></span>
             微信：{{goodsData.wx}}
           </p>
@@ -64,6 +65,11 @@
           登录后才能查看卖家的联系方式哦！
         </a>
       </div>
+    </Card>
+    <!-- <Card class="card clearfix"> -->
+    <Card class="card" v-if="goodsData.goodsInfo">
+      <h3 style="margin-top: -20px;margin-bottom: 20px;border-bottom: 1px dotted gainsboro;">详细信息</h3>
+      <div v-html="goodsData.goodsInfo"></div>
     </Card>
     <Footer></Footer>
   </div>
@@ -100,7 +106,8 @@ export default {
     async receiveItemData() {
       // console.log(JSON.parse(sessionStorage.getItem('goodsData')))
       // this.goodsData = JSON.parse(sessionStorage.getItem('goodsData'))
-      const goodsId = this.$route.query.goodsId
+      // const goodsId = this.$route.query.goodsId
+      const goodsId = this.$route.params.id
       const res = await this.$http.get('/goodsDetail', {
         params: {
           goodsId
@@ -169,6 +176,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  .service{
+    position: absolute;
+    right: 0;
+    border-radius: 5px;
+    padding: 2px 4px;
+    background-color: paleturquoise;
+  }
   .detail{
     .card{
       width: 1000px;
@@ -176,6 +190,9 @@ export default {
       margin: 36px auto;
       padding: 20px;
       box-sizing: border-box;
+      .title{
+        margin-top: 10px;
+      }
     }
     background: #f5f7f9;
     .imgContainer{

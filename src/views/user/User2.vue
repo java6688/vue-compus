@@ -2,18 +2,22 @@
   <div class="user">
     <div class="layout">
       <Layout>
-          <Header :show="activeName"></Header>
+          <Header :show="activeName" :avatar="avatarUrl"></Header>
           <Card style="width: 1000px;height: 700px;margin: 36px auto; overflow: hidden;">
               <Content :style="{padding: '24px 0', minHeight: '280px', background: '#fff'}">
                   <Layout>
                       <Sider hide-trigger :style="{background: '#fff'}">
-                          <Menu class="menu" style="height: 600px;" :active-name="asideName" theme="light" width="auto" :open-names="['1']">
-                            <router-link to="/user">
+                          <Menu class="menu" style="height: 600px;"
+                            :active-name="asideName"
+                            theme="light" width="auto" :open-names="['1']"
+                            @on-select="selectMenu"
+                          >
+                            <router-link to="/user/info">
                               <MenuItem name="1-1">
                                 <span>我的资料</span>
                               </MenuItem>
                             </router-link>
-                            <router-link to="/mygoods">
+                            <router-link to="/user/mygoods">
                               <MenuItem name="1-2">
                                 <span>我的物品</span>
                               </MenuItem>
@@ -31,7 +35,7 @@
                           </Menu>
                       </Sider>
                       <Content :style="{padding: '0 24px', minHeight: '280px', background: '#fff'}">
-                        <MyNews></MyNews>
+                        <router-view></router-view>
                       </Content>
                   </Layout>
               </Content>
@@ -46,20 +50,29 @@
 <script>
 const Header = ()=>import('@components/header/Header.vue')
 const Footer = ()=>import('@components/Footer.vue')
-const MyNews = ()=>import('@components/user/MyNews.vue')
+const UserInfo = ()=>import('@components/user/UserInfo.vue')
 export default {
   name: 'User',
   components: {
     Header,
     Footer,
-    MyNews
+    UserInfo
   },
   data() {
     return {
       // 控制导航栏激活状态
       activeName: '5',
       // 个人中心侧边栏激活控件
-      asideName: '1-4'
+      asideName: '1-1',
+      avatarUrl: '',
+      editNickname: ''
+    }
+  },
+  methods: {
+    selectMenu(name) {
+      this.asideName = name
+      console.log(name)
+      console.log(this.asideName)
     }
   },
   mounted() {

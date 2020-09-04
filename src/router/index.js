@@ -30,6 +30,22 @@ const routes = [
     name: 'User',
     component: () => import(/* webpackChunkName: "user" */ '@views/user/User.vue')
   },
+  // {
+  //   path: '/user',
+  //   name: 'User',
+  //   component: () => import(/* webpackChunkName: "user" */ '@views/user/User2.vue'),
+  //   redirect: '/user/info',
+  //   children: [
+  //     {
+  //       path: '/user/info',
+  //       component: () => import(/* webpackChunkName: "user" */ '@components/user/UserInfo2.vue')
+  //     },
+  //     {
+  //       path: '/user/mygoods',
+  //       component: () => import(/* webpackChunkName: "user" */ '@components/user/MyGoods2.vue')
+  //     },
+  //   ]
+  // },
   {
     path: '/mygoods',
     name: 'UserGoods',
@@ -51,7 +67,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "user" */ '@views/user/UserNews.vue')
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'Detail',
     component: () => import(/* webpackChunkName: "detail" */ '@views/Detail.vue')
   },

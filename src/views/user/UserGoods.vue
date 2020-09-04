@@ -2,7 +2,7 @@
   <div class="user">
     <div class="layout">
       <Layout>
-          <Header :show="activeName" :avatar="avatarUrl"></Header>
+          <Header :show="activeName"></Header>
           <Card style="width: 1000px;height: 700px;margin: 36px auto; overflow: hidden;">
               <Content :style="{padding: '24px 0', minHeight: '280px', background: '#fff'}">
                   <Layout>
@@ -59,14 +59,7 @@ export default {
       // 控制导航栏激活状态
       activeName: '5',
       // 个人中心侧边栏激活控件
-      asideName: '1-2',
-      avatarUrl: ''
-    }
-  },
-  methods: {
-    updateAvatar(data) {
-      this.avatarUrl = data
-      console.log(data)
+      asideName: '1-2'
     }
   },
   mounted() {

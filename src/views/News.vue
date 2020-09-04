@@ -60,7 +60,7 @@
               </div> -->
             </div>
           </div>
-          <Button style="display: block;margin: 10px auto;" type="primary" @click="handleSpinCustom">点击加载更多动态</Button>
+          <Button style="display: block;margin: 10px auto;" @click="handleSpinCustom">点击加载更多动态</Button>
         </Card>
       </div>
       <Footer></Footer>

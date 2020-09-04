@@ -67,6 +67,9 @@
                 <img :src="imgName" v-if="visible" style="width: 100%">
             </Modal>
           </FormItem>
+          <FormItem label="详细信息">
+              <div id="editor"></div>
+          </FormItem>
           <FormItem>
               <Button type="primary" @click="handleSubmit('goodsData')">更新</Button>
               <Button @click="handleReset('goodsData')" style="margin-left: 8px">重置</Button>
@@ -78,6 +81,7 @@
 </template>
 
 <script>
+import wangEditor from 'wangeditor'
 export default {
   name: 'UploadGoods',
   data () {
@@ -98,7 +102,9 @@ export default {
         // 保存所有联系方式
         phone: '',
         qq: '',
-        wx: ''
+        wx: '',
+        // 商品详细信息
+        goodsInfo: ''
       },
       ruleValidate: {
         title: [
@@ -106,7 +112,7 @@ export default {
         ],
         description: [
           { required: true, message: '请输入商品描述', trigger: 'blur' },
-          { type: 'string', min: 10, max: 200, message: '商品描述需在10-200个字符之间', trigger: 'blur' }
+          { type: 'string', max: 300, message: '商品描述不能大于300个字符', trigger: 'blur' }
         ],
         price: [
           { required: true, message: '请输入价格', trigger: 'blur' }
@@ -137,6 +143,17 @@ export default {
     }
   },
   methods: {
+    initEditor() {
+      var editorBox = document.getElementById('editor')
+      var editor = new wangEditor(editorBox)
+      var vm = this
+      editor.customConfig.onchange = function (html) {
+        // html 即变化之后的内容
+        vm.goodsData.goodsInfo = html
+      }
+      editor.create()
+      editor.txt.html(`<p>${this.goodsData.goodsInfo}</p>`);
+    },
     // 提交商品信息
     handleSubmit (name) {
       // console.log(this.goodsData.seller)
@@ -254,6 +271,7 @@ export default {
       this.$router.push('/login')
     }
     this.getGoods()
+    this.initEditor()
   }
 }
 </script>
