@@ -40,12 +40,6 @@ export default {
       })
       // 搜索后清空输入框
       this.keyword = ''
-      // const res = await this.$http.get('/search', {
-      //   params: {
-      //     keyword: this.keyword
-      //   }
-      // })
-      // console.log(res)
     }
   }
 }
@@ -54,10 +48,8 @@ export default {
 <style lang="less" scoped>
   .home{
     padding-top: 100px;
-    // width: 1200px;
-    // margin: 200px auto;
-    // height: 600px;
-    height: calc(100vh);
+    height: 100vh;
+    width: 100%;
     text-align: center;
     background-image: url('https://s1.ax1x.com/2020/09/02/w9puXn.jpg');
     background-repeat: no-repeat;

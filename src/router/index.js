@@ -13,7 +13,12 @@ const routes = [
   {
     path: '/shop',
     name: 'Shop',
-    component: () => import(/* webpackChunkName: "shop" */ '@views/Shop.vue')
+    component: () => import(/* webpackChunkName: "shop" */ '@views/Shop.vue'),
+  },
+  {
+    path: '/shop/detail/:id',
+    name: 'Detail',
+    component: () => import(/* webpackChunkName: "detail" */ '@views/Detail.vue')
   },
   {
     path: '/upload_goods',
@@ -49,11 +54,6 @@ const routes = [
     path: '/mynews',
     name: 'UserNews',
     component: () => import(/* webpackChunkName: "user" */ '@views/user/UserNews.vue')
-  },
-  {
-    path: '/detail/:id',
-    name: 'Detail',
-    component: () => import(/* webpackChunkName: "detail" */ '@views/Detail.vue')
   },
   {
     path: '/login',
@@ -95,15 +95,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "admin_feedback" */ '@views/admin/AdminFeedback.vue'),
     meta: { requireAuth: true }
   }
-  // ,
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '@views/About.vue')
-  // }
 ]
 
 const router = new VueRouter({

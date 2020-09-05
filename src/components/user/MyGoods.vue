@@ -9,11 +9,11 @@
               :description="item.description"
             />
             <template slot="action">
-              <li>
-                  <Button type="warning" size="small" v-if="item.check === 0">待审核</Button>
+              <li  v-if="item.check === 0">
+                  <Button type="warning" size="small">待审核</Button>
               </li>
-              <li>
-                <router-link :to="'detail/'+item._id" target="_blank">
+              <li v-if="item.check === 1">
+                <router-link :to="'/shop/detail/'+item._id" target="_blank">
                   <Button size="small">查看</Button>
                 </router-link>
               </li>

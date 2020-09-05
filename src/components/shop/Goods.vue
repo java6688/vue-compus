@@ -33,7 +33,7 @@
         >
           <template>
             <div class='cell-item' v-for='(item,index) in goodsData' :key='index' @mouseover="itemMouseover">
-              <router-link class="goodsCon" :to="'/detail/' + item._id" target="_blank">
+              <router-link class="goodsCon" :to="'/shop/detail/' + item._id" target="_blank">
                 <img v-if='item.goodsImgs.length' v-lazy='item.goodsImgs[0]' alt="图片加载中...">
                 <div class='item-body'>
                   <div class='item-desc' v-html="item.title"></div>

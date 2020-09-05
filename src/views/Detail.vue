@@ -4,7 +4,6 @@
     <Card class="card clearfix">
       <div class="imgContainer fl">
         <div class="bigPic">
-          <!-- <img id="imgControl" v-if="goodsData.goodsImgs" :src="goodsData.goodsImgs[0]" alt=""> -->
           <div class="small-box">
             <img id="imgControl" class="small-pic" v-if="goodsData.goodsImgs" :src="goodsData.goodsImgs[0]">
             <div class="mask"></div>

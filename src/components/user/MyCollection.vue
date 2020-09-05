@@ -10,8 +10,8 @@
             />
             <template slot="action">
                 <li>
-                  <router-link :to="{path: '/detail'}" target="_blank">
-                    <Button type="primary" size="small" @click="sendGoodsData(item.goodsId)">查看</Button>
+                  <router-link :to="'/shop/detail/'+item.goodsId._id" target="_blank">
+                    <Button type="primary" size="small">查看</Button>
                   </router-link>
                 </li>
                 <li>
@@ -54,12 +54,6 @@ export default {
       } else {
         this.$Message.error('取消收藏失败！')
       }
-    },
-    CollectionsEdit() {
-      // this.
-    },
-    sendGoodsData(item) {
-      sessionStorage.setItem('goodsData', JSON.stringify(item))
     }
   },
   mounted() {
