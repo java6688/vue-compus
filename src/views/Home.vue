@@ -17,13 +17,11 @@
 </template>
 
 <script>
-const Header = ()=>import('@components/header/Header.vue')
-const Footer = ()=>import('@components/Footer.vue')
 export default {
   name: 'Home',
   components: {
-    Header,
-    Footer
+    Header: ()=>import('@components/header/Header.vue'),
+    Footer: ()=>import('@components/Footer.vue')
   },
   data() {
     return {

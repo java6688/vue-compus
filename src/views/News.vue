@@ -70,15 +70,12 @@
 </template>
 
 <script>
-const Header = ()=>import('@components/header/Header.vue')
-const Footer = ()=>import('@components/Footer.vue')
-const WangEditor = ()=>import('@components/news/wangEditor-3.1.1/WangEditor.vue')
 export default {
   name: 'Home',
   components: {
-    Header,
-    Footer,
-    WangEditor
+    Header: ()=>import('@components/header/Header.vue'),
+    Footer: ()=>import('@components/Footer.vue'),
+    WangEditor: ()=>import('@components/news/wangEditor-3.1.1/WangEditor.vue')
   },
   data() {
     return {

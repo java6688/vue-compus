@@ -20,15 +20,12 @@
 </template>
 
 <script>
-const Header = ()=>import('@components/header/Header.vue')
-const Footer = ()=>import('@components/Footer.vue')
-const Goods = ()=>import('@components/shop/Goods.vue')
 export default {
   name: 'Shop',
   components: {
-    Goods,
-    Footer,
-    Header
+    Header: ()=>import('@components/header/Header.vue'),
+    Goods: ()=>import('@components/shop/Goods.vue'),
+    Footer: ()=>import('@components/Footer.vue')
   },
   data() {
     return {

@@ -35,7 +35,7 @@
         </router-link> -->
         <div class="demo-avatar">
             <!-- <Avatar icon="ios-person" /> -->
-            <router-link to="/user">
+            <router-link :to="username ? '/user' : '/login'">
               <img :src="avatarUrl ? avatarUrl : defaultAvatar" class="avatar">
             </router-link>
             <!-- <img :src="avatarUrl" alt=""> -->
@@ -90,8 +90,9 @@ export default {
       localStorage.removeItem('userId')
       localStorage.removeItem('avatarUrl')
       this.username = ''
+      this.nickname = ''
       this.avatarUrl = ''
-      this.$router.go(0)
+      // this.$router.go(0)
     },
     async searchGoods() {
       this.$router.push({

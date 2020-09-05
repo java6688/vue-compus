@@ -91,11 +91,10 @@
 </template>
 
 <script>
-import Loading from './loading'
 export default {
   name: 'Goods',
   components: {
-    Loading
+    Loading: ()=>import('./loading')
   },
   data() {
     return {

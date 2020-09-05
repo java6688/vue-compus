@@ -38,8 +38,6 @@ export default{
       const res = await this.$http.post('/publishNews', this.newsData)
       if (res.status === 200) {
         this.$Message.success('发布成功！')
-        // 提交成功清空编辑器文本
-        editor.txt.html('<p><br></p>');
         this.$emit('newsInfo', this.newsData)
       } else {
         this.$Message.error('发布失败！请查看是否已经登录！')

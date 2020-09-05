@@ -89,12 +89,11 @@
 </template>
 
 <script>
-const Header = ()=>import('@components/header/Header.vue')
 import wangEditor from 'wangeditor'
 export default {
   name: 'UploadGoods',
   components: {
-    Header
+    Header: ()=>import('@components/header/Header.vue')
   },
   data () {
     return {
