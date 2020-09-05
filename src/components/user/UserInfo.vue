@@ -16,7 +16,7 @@
         <!-- <Avatar class="avatar" style="background-color: #87d068" /> -->
       </Upload>
     </div>
-    <Form :model="userInfo" :label-width="80" :disabled="formIsEdit">
+    <Form :model="userInfo" :label-width="80">
       <FormItem label="用户名">
         <Input v-model="userInfo.username" disabled style="width: 500px" />
           <!-- <Input v-model="userInfo.nickname"></Input> -->
@@ -70,8 +70,8 @@
       </FormItem> -->
     </Form>
     <div class="formBtn">
-      <Button type="primary" @click.native="editUserInfoBtn">修改</Button>
-      <Button style="margin-left: 8px" @click.native="saveUserInfoBtn">保存</Button>
+      <!-- <Button type="primary" @click="editUserInfoBtn">修改</Button> -->
+      <Button type="primary" style="margin-left: 8px" @click="saveUserInfoBtn">保存</Button>
     </div>
   </div>
 </template>
@@ -82,7 +82,7 @@ export default {
     return {
       userInfo: {},
       // 控制表单是否可编辑状态
-      formIsEdit: true,
+      // formIsEdit: true,
       avatarUrl: '',
       defaultAvatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596303462534&di=77780457c88d6f77e8d2431c0b3ed309&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F01%2F56%2F69%2F575747cfd0cfe1a.jpg'
     }
@@ -131,9 +131,9 @@ export default {
         desc: 'File  ' + file.name + ' is too large, no more than 2M.'
       })
     },
-    editUserInfoBtn() {
-      this.formIsEdit = false
-    },
+    // editUserInfoBtn() {
+    //   this.formIsEdit = false
+    // },
     async saveUserInfoBtn() {
       const res = await this.$http.post('/user', this.userInfo)
       if (res.status === 200) {

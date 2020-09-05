@@ -20,9 +20,8 @@
       <div class="content fl">
         <div class="item-footer">
           <div
-            v-if='goodsData.seller'
             class='avatar'
-            :style='{backgroundImage : `url(${goodsData.seller.avatarUrl})`}'
+            :style='goodsData.seller.avatarUrl?{backgroundImage : `url(${goodsData.seller.avatarUrl}`}:{backgroundImage : `url(${defaultAvatar}`}'
           ></div>
           <div class='name' v-if="goodsData.seller">{{goodsData.seller.username}}</div>
           <a v-if="contactShow && goodsData.qq" class="service" :href="'http://wpa.qq.com/msgrd?v=3&uin='+ goodsData.qq + '&site=qq&menu=yes'" target="_blank">
@@ -85,7 +84,8 @@ export default {
     return {
       goodsData: {},
       imgItems: '',
-      contactShow: false
+      contactShow: false,
+      defaultAvatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596303462534&di=77780457c88d6f77e8d2431c0b3ed309&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F01%2F56%2F69%2F575747cfd0cfe1a.jpg'
     }
   },
   methods: {
