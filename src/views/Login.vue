@@ -2,8 +2,10 @@
   <div class="loginPage">
     <div class="wrapper">
       <div class="topTitle">
-        <h1>校园集市</h1>
-        <h3>————让校园市场动态触手可及————</h3>
+        <div>
+          <h1>校园集市</h1>
+          <h3>————让校园市场动态触手可及————</h3>
+        </div>
       </div>
       <Card>
         <Tabs>
@@ -145,26 +147,30 @@ export default {
 <style lang="less" scoped>
 .loginPage{
   // height: 657px;
-  height: calc(100vh);
+  height: 100vh;
   padding-top: 80px;
+  // 移动端有些浏览器无法居中
   text-align: center;
   background-image: url('https://s1.ax1x.com/2020/09/02/w9puXn.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   .wrapper{
     width: 500px;
-    // padding: 100px 0;
     margin: 0 auto;
     .loginBtn{
-      // margin-left: -25px;
       width: 100%;
     }
     .registerBtn{
-       // margin-left: 8px;
        width: 100%;
     }
     .topTitle{
+      display: flex;
+      justify-content: center;
       margin-bottom: 30px;
+      h1{
+        display: flex;
+        justify-content: center;
+      }
     }
     .logo{
       width: 100px;

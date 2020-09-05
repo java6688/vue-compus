@@ -25,7 +25,7 @@
             :style='{backgroundImage : `url(${goodsData.seller.avatarUrl})`}'
           ></div>
           <div class='name' v-if="goodsData.seller">{{goodsData.seller.username}}</div>
-          <a v-if="contactShow && goodsData.qq" class="service" href="'http://wpa.qq.com/msgrd?v=3&uin='+ goodsData.qq + '&site=qq&menu=yes'" target="_blank">
+          <a v-if="contactShow && goodsData.qq" class="service" :href="'http://wpa.qq.com/msgrd?v=3&uin='+ goodsData.qq + '&site=qq&menu=yes'" target="_blank">
             QQ在线客服
             <span class="iconfont icon-kefu"></span>
           </a>
