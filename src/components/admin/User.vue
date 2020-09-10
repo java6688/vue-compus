@@ -33,7 +33,7 @@ export default {
         // 默认当前页
         pageNum: 1,
         // 默认每页显示条数
-        pageSize: 6
+        pageSize: 10
       },
       // 总页数
       total: 10,
@@ -65,8 +65,8 @@ export default {
           key: 'location'
         },
         {
-          title: '毕业年份',
-          key: 'graduationDate'
+          title: '注册时间',
+          key: 'registerTime'
         },
         {
           title: '角色',
@@ -92,7 +92,7 @@ export default {
                     this.show(params.index)
                   }
                 }
-              }, '预览'),
+              }, '更多'),
               h('Button', {
                 props: {
                   type: 'error',
@@ -123,7 +123,11 @@ export default {
       // console.log(index)
       this.$Modal.info({
         title: '用户信息',
-        content: `昵称：${this.userInfo[index].nickname}<br>个人简介：${this.userInfo[index].description}<br>状态：${this.userInfo[index].state}`
+        content: `昵称：${this.userInfo[index].nickname}<br>
+        个人简介：${this.userInfo[index].description}<br>
+        毕业年份：${this.userInfo[index].graduationDate}<br>
+        状态：${this.userInfo[index].state}
+        `
       })
     },
     // 页码改变的回调，返回改变后的页码
