@@ -1,3 +1,6 @@
+# 校园集市
+[点击进入校园集市网站](http://liuguanghai.cn:8848/)
+
 # campussell
 
 ## Project setup
